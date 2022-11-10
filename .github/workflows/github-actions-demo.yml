@@ -17,9 +17,10 @@ jobs:
       - name: Provision cluster
         uses: russau/amazon-eks-fargate@russ-nov-updates
         with:
+          name: long-life-cluster
           version: "1.23"
           add_system_masters_arn: ${{ secrets.AWS_ROLE_FOR_SYSTEM_MASTERS }} 
-          delete_cluster: true
+          delete_cluster: false
       - name: Checkout
         uses: actions/checkout@v3.1.0
       - name: Run tests
